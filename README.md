@@ -11,6 +11,7 @@ This repository contains Terraform HCL code to set up and manage a local Kuberne
 - [Terraform](https://www.terraform.io/downloads.html) installed
 - A VM workstation (e.g., VirtualBox, VMware)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed
+- [Helm](https://helm.sh/docs/intro/install/) installed
 
 ## Usage
 
