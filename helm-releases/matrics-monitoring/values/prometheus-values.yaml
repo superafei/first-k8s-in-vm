@@ -1,0 +1,7 @@
+server:
+  persistentVolume:
+    enabled: true
+    size: "3Gi"
+    storageClass: "nfs-client"
+alertmanager:
+  enabled: false
