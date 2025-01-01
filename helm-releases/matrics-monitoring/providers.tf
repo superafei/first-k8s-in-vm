@@ -24,12 +24,12 @@ provider "aws" {
 provider "kubernetes" {
   config_path    = "~/.kube/config"
   # The context name of the Kubernetes cluster to use from the kubeconfig file
-  config_context = "kubernetes"
+  config_context = "kubernetes-admin@kubernetes"
 }
 
 provider "helm" {
   kubernetes {
     config_path    = "~/.kube/config"
-    config_context = "kubernetes"
+    config_context = "kubernetes-admin@kubernetes"
   }
 }
