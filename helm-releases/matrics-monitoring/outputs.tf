@@ -1,7 +1,3 @@
-output "namespace" {
-  description = "The namespace where all monitoring components are deployed"
-  value       = var.namespace
-}
 
 output "releases_status" {
   description = "Status of all Helm releases"

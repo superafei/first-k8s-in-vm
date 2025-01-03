@@ -1,0 +1,28 @@
+# Configuration for NGINX Ingress Controller
+controller:
+  service:
+    type: LoadBalancer
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      additionalLabels:
+        release: prometheus
+  config:
+    enable-vts-status: "true"
+    vts-status-zone-size: 128k
+  ingressClassResource:
+    default: true
+
+# Configuration for default backend
+defaultBackend:
+  enabled: true
+
+# RBAC configuration
+rbac:
+  create: true
+
+# Service account configuration
+serviceAccount:
+  create: true
+  name: "nginx-ingress-serviceaccount"

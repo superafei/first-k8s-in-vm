@@ -1,9 +1,3 @@
-resource "kubernetes_namespace" "monitoring" {
-  metadata {
-    name = var.namespace
-  }
-}
-
 resource "helm_release" "releases" {
   for_each         = var.helm_releases
   
@@ -11,14 +5,14 @@ resource "helm_release" "releases" {
   repository       = each.value.repository
   chart            = each.value.chart
   version          = each.value.chart_version
-  namespace        = var.namespace
-  create_namespace = false
-  atomic           = true #default value is true， you can only set it to false to debug in dev env.
-  wait             = true
-  replace          = true
-  timeout          = 300  # The default is 300 whicch is not enough for Prometheus in my case
+  namespace        = each.value.namespace
+  atomic           = each.value.atomic
+  create_namespace = each.value.create_namespace
+  wait             = each.value.wait
+  replace          = each.value.replace
+  timeout          = each.value.timeout
 
   values           = [
-    file("${path.module}/values/${each.key}-values.yaml")
+    file("${path.module}/values/${each.value.values_file}")
   ]
 }

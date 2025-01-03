@@ -1,0 +1,4 @@
+# Enable the installation of Custom Resource Definitions (CRDs)
+# CRDs are used by Cert-Manager to define custom resources such as Certificates, Issuers, and ClusterIssuers.
+# Setting this to true ensures that the necessary CRDs are installed when deploying Cert-Manager.
+installCRDs: true
